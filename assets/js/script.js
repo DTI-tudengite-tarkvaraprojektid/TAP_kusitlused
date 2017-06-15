@@ -53,7 +53,7 @@ function Export(id, name){
 function newTextQuestion(){
 	var div = document.createElement('div');
 	
-	div.style.borderLeft = "3px solid #00897b";
+	div.style.borderLeft = "3px solid #8d6e63";
 	div.style.marginBottom = "20px";
 	div.style.paddingLeft = "10px";
 	div.style.backgroundColor = "white";
@@ -72,7 +72,7 @@ function newTextQuestion(){
 function newMapQuestion(){
 	var div = document.createElement('div');
 	
-	div.style.borderLeft = "3px solid #00897b";
+	div.style.borderLeft = "3px solid #8d6e63";
 	div.style.marginBottom = "20px";
 	div.style.paddingLeft = "10px";
 	div.style.backgroundColor = "white";
@@ -90,7 +90,7 @@ function newMapQuestion(){
 function newSelectQuestion(){ 
 	var div = document.createElement('div');
 	
-	div.style.borderLeft = "3px solid #00897b";
+	div.style.borderLeft = "3px solid #8d6e63";
 	div.style.paddingLeft = "10px";
 	div.style.marginBottom = "20px";
 	div.style.backgroundColor = "white";

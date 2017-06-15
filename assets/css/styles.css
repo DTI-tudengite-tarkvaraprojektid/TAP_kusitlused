@@ -1,12 +1,88 @@
 .logo {
-	font-weight: 300;
-	padding: 10px;
+	padding: 50px;
+	font-size: 45px;
+	font-family: 'Fredoka One', cursive;
+	text-shadow: 2px 0px 4px #808080;
 }
 
-footer {
-	
+.footer-login {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
 }
 
+
+.valid+label:after {
+    content: attr(data-success);
+    color: #8d6e63;
+    opacity: 1;
+}
+
+   /* label focus color */
+   .input-field input[type=text]:focus + label {
+     color: #8d6e63;
+   }
+   /* label underline focus color */
+   .input-field input[type=text]:focus {
+     border-bottom: 1px solid #8d6e63;
+     box-shadow: 0 1px 0 0 #000;
+   }
+   /* valid color */
+   .input-field input[type=text].valid {
+     border-bottom: 1px solid #8d6e63;
+     box-shadow: 0 1px 0 0 #000;
+   }
+   /* invalid color */
+   .input-field input[type=text].invalid {
+     border-bottom: 1px solid #8d6e63;
+     box-shadow: 0 1px 0 0 #000;
+   }
+   
+   
+   /* label focus color */
+   .input-field input[type=email]:focus + label {
+     color: #8d6e63;
+   }
+   /* label underline focus color */
+   .input-field input[type=email]:focus {
+     border-bottom: 1px solid #8d6e63;
+     box-shadow: 0 1px 0 0 #000;
+   }
+   /* valid color */
+   .input-field input[type=email].valid {
+     border-bottom: 1px solid #8d6e63;
+     box-shadow: 0 1px 0 0 #000;
+   }
+   /* invalid color */
+   .input-field input[type=email].invalid {
+     border-bottom: 1px solid #8d6e63;
+     box-shadow: 0 1px 0 0 #000;
+   }
+   
+
+   /* label focus color */
+   .input-field input[type=password]:focus + label {
+     color: #8d6e63;
+   }
+   /* label underline focus color */
+   .input-field input[type=password]:focus {
+     border-bottom: 1px solid #8d6e63;
+     box-shadow: 0 1px 0 0 #000;
+   }
+   /* valid color */
+   .input-field input[type=password].valid {
+     border-bottom: 1px solid #8d6e63;
+     box-shadow: 0 1px 0 0 #000;
+   }
+   /* invalid color */
+   .input-field input[type=password].invalid {
+     border-bottom: 1px solid #8d6e63;
+     box-shadow: 0 1px 0 0 #000;
+   }
+   
+.navbar-menu {
+	text-shadow: 2px 0px 4px #808080;
+}
 .thin-text {
 	font-weight: 200;
 	background: rgba(96, 125, 139, .4);

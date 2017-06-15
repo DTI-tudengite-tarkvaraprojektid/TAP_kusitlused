@@ -52,7 +52,9 @@ if(!empty($_POST['delValue'])) {
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
+	<link href="https://fonts.googleapis.com/css?family=Archivo+Black|Bubbler+One|Cantarell:700|Fjalla+One|Fredoka+One|Khand:700|Krona+One|Orbitron:700|Quicksand|Righteous|Unica+One" rel="stylesheet">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	
 	<title>Tarkvarapraktika</title>
 
   <!-- Compiled and minified CSS -->
@@ -64,14 +66,14 @@ if(!empty($_POST['delValue'])) {
 <body>
 	
 	<nav>
-		<div class="nav-wrapper teal darken-1">
-			<a href="#!" class="brand-logo"><span class="logo grey-text text-lighten-5">Küsitlused</span></a>
+		<div class="nav-wrapper brown lighten-1">
+			<a href="#!" class="brand-logo title"><span class="logo grey-text text-lighten-5">iZ!quiZ</span></a>
 			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-			<ul class="right hide-on-med-and-down">
-				<li><a href="">Pealeht</a></li>
-				<li><a href="">Kontakt</a></li>
-				<li><a href="">Abi</a></li>
-				<li><a href="?logout">Logi välja</a></li>
+			<ul class="right hide-on-med-and-down navbar-menu">
+				<li><a href="">PEALEHT</a></li>
+				<li><a href="">KONTAKT</a></li>
+				<li><a href="">ABI</a></li>
+				<li><a href="?logout">LOGI VÄLJA</a></li>
 				
 			</ul>
 			<ul class="side-nav" id="mobile-demo">
@@ -94,7 +96,7 @@ if(!empty($_POST['delValue'])) {
 			</div>	
 			<!-- <a class="waves-effect btn-large hoverable  blue lighten-1 col s8">Uuri lähemalt</a> -->
 		</div>
-		<div class="parallax"><img src="assets/img/asd.jpg"></div>
+		<div class="parallax"><img src="assets/img/Tallin-Downtown-sunset (1).jpg"></div>
     </div>
 	
 	
@@ -134,7 +136,7 @@ if(!empty($_POST['delValue'])) {
             echo '<div class="col s12 m12 l12">';
 			echo '<h2 class="center-align black-text cta">Tee oma küsitlus!</h2>';
             echo '<p class="guestFormText">Kui sul on soov teada saada, kuidas teatud hoonete või muu linnas oleva kohta arvatakse, siis alusta kohe...</p>';
-            echo '<a href="#modal1" class="center btn-large waves-effect waves-light teal darken-1 modal-trigger">Alusta!</a>';
+            echo '<a href="#modal1" class="center btn-large waves-effect waves-light brown lighten-1 modal-trigger">Alusta!</a>';
 			echo '</div>';
 			echo '</div>';
 			echo '</div>';
@@ -144,8 +146,8 @@ if(!empty($_POST['delValue'])) {
 			echo '<div class="row">';
 			echo '<div class="col s12 m12 l12">';
 			echo '<div class="row center">';
-			echo '<span class="center-align black-text cta">Sinu küsitlused:</span>&nbsp';
-			echo '<a class="center waves-effect waves-light btn-floating modal-trigger" href="#newQuestionnaire"><i class="large material-icons">note_add</i></a>';
+			echo '<span class="center-align black-text cta">Sinu küsitlused</span>&nbsp';
+			echo '<div><a class="center waves-effect waves-light btn-floating modal-trigger" href="#newQuestionnaire"><i class="large material-icons brown lighten-1">note_add</i></a></div>';
 			echo '</div>';
 			echo '<ul class="collapsible" data-collapsible="accordion">';
             foreach($allData as $q){
@@ -162,7 +164,7 @@ if(!empty($_POST['delValue'])) {
 				echo '<div class="row center">';
 				echo '<div class="col s12 m12 l12">';
 				echo '<form method="post">';
-				echo '<button onclick="Export(',$q->questionnaire->questionnaire_id,', \'',$q->questionnaire->questionnaire_name,'\')"value="',$q->questionnaire->questionnaire_id,'" name="csvValue" id="csvValue" class="center btn-large waves-effect waves-light teal-darken-1"><i class="material-icons">file_download</i>Vastused CSV failina</button>&nbsp<button value="',$q->questionnaire->questionnaire_id,'" name="delValue" id="delValue" onclick=\'return confirm("Oled kindel et soovid seda küsitlust kustutada? Sa kaotad küsitluse, küsimusi ning kõiki vastusi!")\' class="center btn-large waves-effect waves-light red darken-2s"><i class="material-icons">delete</i>Kustuta küsitlus</button>';
+				echo '<button onclick="Export(',$q->questionnaire->questionnaire_id,', \'',$q->questionnaire->questionnaire_name,'\')"value="',$q->questionnaire->questionnaire_id,'" name="csvValue" id="csvValue" class="center btn-large waves-effect waves-light brown lighten-1"><i class="material-icons">file_download</i>Vastused CSV failina</button>&nbsp<button value="',$q->questionnaire->questionnaire_id,'" name="delValue" id="delValue" onclick=\'return confirm("Oled kindel et soovid seda küsitlust kustutada? Sa kaotad küsitluse, küsimusi ning kõiki vastusi!")\' class="center btn-large waves-effect waves-light red darken-4"><i class="material-icons">delete</i>Kustuta küsitlus</button>';
 				echo '</form>';
 				echo '</div>';
 				echo '</div>';
@@ -196,22 +198,19 @@ if(!empty($_POST['delValue'])) {
 			</div>
 			
 			<div class="row center">
-			<button class="btn waves-effect waves-green" onclick="newTextQuestion()">+ Tektsiküsimus</button>
-			<button class="btn waves-effect waves-green" onclick="newSelectQuestion()">+ Valikvastustega küsimus</button>
-			<button class="btn waves-effect waves-green" onclick="newMapQuestion()">+ Kaardiga küsimus</button>
+			<button class="btn waves-effect brown lighten-2" onclick="newTextQuestion()">+ Tekstiküsimus</button>
+			<button class="btn waves-effect brown lighten-1" onclick="newSelectQuestion()">+ Valikvastustega küsimus</button>
+			<button class="btn waves-effect brown lighten-2" onclick="newMapQuestion()">+ Kaardiga küsimus</button>
 			</div>
 		</div>
 	</div>
   </div>
   <div class="modal-footer">
-    <button type="submit" value="Salvesta"  class="btn waves-effect waves-green">Salvesta</button>
+    <button type="submit" value="Salvesta"  class="btn waves-effect brown lighten-1">Salvesta</button>
   </div>
   </form>
 </div>
-
-
-	
-		<footer class="page-footer teal darken-1">
+		<footer class="page-footer brown lighten-2">
           <div class="container">
             <div class="row">
               <div class="col s12 m12 l12 center grey-text text-lighten-4">
@@ -219,16 +218,12 @@ if(!empty($_POST['delValue'])) {
               </div>
             </div>
           </div>
-          <div class="footer-copyright teal darken-2">
+          <div class="footer-copyright brown lighten-1">
             <div class="container center">
             © 2017 Vladislav Šutov, Mark Väljak, Gittan Kaus
             </div>
           </div>
         </footer>
-		
-
-	
-	
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
