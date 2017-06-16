@@ -5,6 +5,16 @@
 	text-shadow: 2px 0px 4px #808080;
 }
 
+.login_box {
+    background: rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    height: 100%;
+    z-index: 2;
+	border-style: solid;
+    border-width: 1px;
+	border-color: white;
+}
+
 .footer-login {
 	position: absolute;
 	bottom: 0px;
@@ -20,11 +30,11 @@
 
    /* label focus color */
    .input-field input[type=text]:focus + label {
-     color: #8d6e63;
+     color: white;
    }
    /* label underline focus color */
    .input-field input[type=text]:focus {
-     border-bottom: 1px solid #8d6e63;
+     border-bottom: 1px solid white;
      box-shadow: 0 1px 0 0 #000;
    }
    /* valid color */
@@ -34,51 +44,57 @@
    }
    /* invalid color */
    .input-field input[type=text].invalid {
-     border-bottom: 1px solid #8d6e63;
+     border-bottom: 1px solid red;
      box-shadow: 0 1px 0 0 #000;
    }
    
    
    /* label focus color */
    .input-field input[type=email]:focus + label {
-     color: #8d6e63;
+     color: white;
    }
    /* label underline focus color */
    .input-field input[type=email]:focus {
-     border-bottom: 1px solid #8d6e63;
+     border-bottom: 1px solid white;
      box-shadow: 0 1px 0 0 #000;
    }
    /* valid color */
    .input-field input[type=email].valid {
-     border-bottom: 1px solid #8d6e63;
+     border-bottom: 1px solid white;
      box-shadow: 0 1px 0 0 #000;
    }
    /* invalid color */
    .input-field input[type=email].invalid {
-     border-bottom: 1px solid #8d6e63;
+     border-bottom: 1px solid red;
      box-shadow: 0 1px 0 0 #000;
    }
    
 
    /* label focus color */
    .input-field input[type=password]:focus + label {
-     color: #8d6e63;
+     color: white;
    }
    /* label underline focus color */
    .input-field input[type=password]:focus {
-     border-bottom: 1px solid #8d6e63;
+     border-bottom: 1px solid white;
      box-shadow: 0 1px 0 0 #000;
    }
    /* valid color */
    .input-field input[type=password].valid {
-     border-bottom: 1px solid #8d6e63;
+     border-bottom: 1px solid white;
      box-shadow: 0 1px 0 0 #000;
    }
    /* invalid color */
    .input-field input[type=password].invalid {
-     border-bottom: 1px solid #8d6e63;
+     border-bottom: 1px solid red;
      box-shadow: 0 1px 0 0 #000;
    }
+   
+.login {
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+	color: white;
+	text-shadow: 2px 0px 4px #808080;
+}
    
 .navbar-menu {
 	text-shadow: 2px 0px 4px #808080;
