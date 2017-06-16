@@ -46,20 +46,17 @@ require ("header.php");
 <body>
 	<div class="container" id="wrap">
 		<form id="loginForm" class="col s12 m6" method="POST">
-			<div class="row">
-				<div class="center-align col s12 m5 offset-m3 ">
-					<h1 class="center-align login">Sisselogimine <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Praegusel hetkel veebileht on beta-testis, seetõttu avalik registreerimine pole võimalik."><i style="font-size: 30px " class="material-icons brown-text text-darken-1">help_outline</i></a></h1>
-				</div>
-			</div>		
+			<br><br><br><br><br><br><br>
 			<div class="login_box row">
-			
 				<div class ="center-align border col s16 m6 l6">
 				<img src="assets/img/izi_logo.png">
 				<br><span style="font-size: 60px; vertical-align: text-top; " class="login navbar-menu white-text text-lighten-5">iZ!quiZ</span>
+				<br>
+				<a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Praegusel hetkel veebileht on beta-testis, seetõttu avalik registreerimine pole võimalik."><i style="font-size: 30px " class="material-icons brown-text text-darken-1">help_outline</i></a>
 				</div>
 				
 				<div class ="center-align col s16 m6 l6">
-				<br><br>
+				<br><br><br>
 				<div class="input-field col s12 m5 offset-m3 ">
 					<input type="email" id="loginEmail" name="loginEmail" class="validate" required value="<?=$loginEmail?>"></input>
 					<label for="loginEmail" data-error="Palun sisestage reaalne e-posti aadress!" data-success="Korras!">E-post</label>
@@ -85,20 +82,6 @@ require ("header.php");
 			</div>
 		</form>
 	</div>
-	<footer class="page-footer brown lighten-2 footer-login">
-          <div class="container">
-            <div class="row">
-              <div class="col s12 m12 l12 center grey-text text-lighten-4">
-                <a href="#" class="grey-text text-lighten-4">Pealeht</a>  |  <a href="#" class="grey-text text-lighten-4">Kontakt</a>  |  <a href="#" class="grey-text text-lighten-4">Abi</a>
-              </div>
-            </div>
-          </div>
-          <div class="footer-copyright brown lighten-1">
-            <div class="container center">
-            © 2017 Vladislav Šutov, Mark Väljak, Gittan Kaus
-            </div>
-          </div>
-        </footer>
 </body>
 
 <?php require ("footer.php");?>
