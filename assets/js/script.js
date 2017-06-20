@@ -47,7 +47,11 @@ function Export(id, name) {
         window.open("app/class/exporttocsv.php?id=" + id + '&name=' + name, '_blank');
     }
 }
-
+// Clean input funktsioon
+function cleanInput(string){
+    string = string.replace(/[<>{}]/g, '');
+    return string;
+}
 
 // Uus küsimus tekstiväljaga
 function newTextQuestion() {
@@ -164,7 +168,7 @@ function generateQrCode(id){
 
 //Ajax päring, et saata PHP'le massiiv küsimustiku nimega ning küsimustega
 function saveQuestionnaire() {
-    var questionnaire = document.getElementById("newQuestionnaireName").value,
+    var questionnaire = cleanInput(document.getElementById("newQuestionnaireName").value),
         questions = document.querySelectorAll(".q"),
         request = {
             name: questionnaire,
@@ -176,7 +180,7 @@ function saveQuestionnaire() {
         var question_type = questions[i].getAttribute('data-type'),
             requestQuiz = {
                 type: question_type,
-                name: questions[i].getElementsByClassName('text')[0].value
+                name: cleanInput(questions[i].getElementsByClassName('text')[0].value
             };
 
         if (question_type === "2") {
@@ -237,10 +241,10 @@ $(function () {
             //validate if input is not empty? before posting
             if (input.attr('type') == 'radio') {
                 items['id'] = input.data('questionId');
-                items['value'] = $(this).next("label").html();
+                items['value'] = cleanInput($(this).next("label").html());
             } else {
                 items['id'] = input.attr('id');
-                items['value'] = input.val();
+                items['value'] = cleanInput(input.val());
             }
             data.answers.push(items)
         });
