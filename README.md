@@ -1,6 +1,6 @@
 # Suvepraktika projekt: Quizify
 
-[![N|Solid](https://i.gyazo.com/06667a208fdc856c37eecd6d05385b04.jpg)]()
+[![N|Solid](https://i.gyazo.com/1a84a9e14a1a87e80e7510f14897aba9.jpg)]()
 
 ## Notice:
   - Projekt ei ole lõpetatud, see tähendab, et tuleb veel palju muudatusi!
@@ -21,7 +21,7 @@
   $dbName = "teieandmebaas";
   
   ```
-  - Luua andmebaasi tabelid (vt. andmebaasi skeemi).
+  - Luua andmebaasi tabelid (vt. andmebaasi skeemi, [tabeliloomine.txt](https://github.com/shxtov/TAP_kusitlused/blob/master/tabeliloomine.txt)).
   - Lisa tabelisse TAP_accounts kasutaja (parool krüpteeritud SHA512).
   - Logi sisse veebilehte oma kasutajanimega ja parooliga.
   - Katseta edasi ise!
