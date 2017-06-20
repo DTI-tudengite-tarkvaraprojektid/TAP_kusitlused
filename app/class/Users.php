@@ -5,6 +5,9 @@ class Users{
         $this->connection = $mysqli;
     }
 
+	
+	
+	// Sisselogimine
     function login ($email, $password){
 
         $loginNotice = "";
@@ -14,24 +17,22 @@ class Users{
 
         $stmt->bind_result($id, $emailFromDatabase, $passwordFromDatabase, $created);
         $stmt->execute();
-
-        //küsin rea andmeid
+		
         if($stmt->fetch()){
-            //oli rida siis võrdlen paroole
-            $hash = hash("sha512", $password);
+            //oli rida siis võrdlen paroole            $hash = hash("sha512", $password);
             if ($hash == $passwordFromDatabase){
                 
                 $_SESSION["userId"] = $id;
                 $_SESSION['email'] = $emailFromDatabase;
 
-                //suunaks uuele lehele
+
                 header("Location: index.php");
             }else{
                 $loginNotice = "Vale parool!";
             }
 
         }else{
-            //ei olnud
+
             $loginNotice ="Kasutajat sellise e-postiga pole olemas!";
         }
         return $loginNotice;

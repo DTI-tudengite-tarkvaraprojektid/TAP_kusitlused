@@ -9,7 +9,7 @@ class Question
     }
 
 
-
+	// Kõikide küsimustikude tõmbamine andmebaasist
     function getAllQuestionnaires($email){
 		$stmt = $this->connection->prepare("SELECT tap_questionnaires.id, tap_questionnaires.name, tap_questionnaires.active,  COUNT(tap_useranswers_ip.ip) FROM TAP_questionnaires LEFT JOIN TAP_useranswers_ip ON tap_questionnaires.id = tap_useranswers_ip.questionnaire_id WHERE author_email = ? GROUP BY tap_questionnaires.id, tap_questionnaires.name, tap_questionnaires.active;");
 		$stmt->bind_param("s", $email);
@@ -32,7 +32,8 @@ class Question
 
 		return $result;
 	}
-
+	
+	// Küsimustiku vaatamise jaoks admin panelis
 	function viewQuestionnaireAdmin($id){
 		$questionStmt = $this->connection->prepare("SELECT id, type, name FROM TAP_questions WHERE questionnaire_id=?;");
 		$questionStmt->bind_param("i", $id);
@@ -55,7 +56,7 @@ class Question
 		return $result;
 	}
 
-
+	// Küsimustiku kustutamine
 	function delQuestionnaire($id){
 		$stmt = $this->connection->prepare("DELETE FROM TAP_questionnaires WHERE id=?");
 		$stmt->bind_param("i", $id);
@@ -63,7 +64,7 @@ class Question
 		$stmt->close();
 	}
 
-
+	// Küsimustiku loomine	
 	function createQuestionnaireWithNameAndEmail($name, $email, $questions){
 		$active = 1;
 		$stmt = $this->connection->prepare("INSERT INTO tap_questionnaires (name, author_email, active) VALUES (?, ?, ?);");
@@ -95,7 +96,7 @@ class Question
         $stmt->close();
 	}
 
-
+	// Küsimustiku tõmbamine /quiz/index.php lehe jaoks et kontrollida, kas küsimustik on aktiivne või mitte
 	function loadQuestionnaireToAnswer($id){
 		$questionnaireStmt = $this->connection->prepare("SELECT name, active FROM TAP_questionnaires WHERE id=?;");
 		$questionnaireStmt->bind_param("i", $id);
@@ -113,7 +114,7 @@ class Question
 		return $questionnaire;
 
 	}
-
+	// Küsimustiku tõmbamine /quiz/index.php lehe jaoks et vastata
     function viewQuestionnaireToAnswer($id)
     {
         $questionStmt = $this->connection->prepare("SELECT TAP_questions.id, TAP_questions.type, TAP_questions.name, TAP_options.id, TAP_options.options from TAP_questions LEFT JOIN TAP_options on TAP_questions.id=TAP_options.question_id WHERE TAP_questions.questionnaire_id = ?;");
@@ -156,6 +157,8 @@ class Question
         return $result;
     }
 
+	
+	// Checkboxiga (switch) küsimustiku staatuse muutmine admin panelil
     function changeQuestionnaireStatus($id){
 
     	$stmt = $this->connection->prepare("SELECT active FROM TAP_questionnaires WHERE id=?;");
@@ -182,7 +185,8 @@ class Question
     	}
 
     }
-
+	
+	// Kontroll, kas inimene juba vastas küsimusele või mitte
     function hasUserAnsweredQuiz($quizId, $userIp){
         $stmt = $this->connection->prepare("SELECT EXISTS(SELECT * FROM TAP_useranswers_ip WHERE questionnaire_id = ? AND ip = ?);");
         $stmt->bind_param("is", $quizId, $userIp);
@@ -195,9 +199,8 @@ class Question
         return boolval($exists);
     }
 
-
+	// Küsimustikule vastuste lisamine andmebaasi
     function addAnswersToDb($quizId, $userIp, $answers){
-
 		$stmt = $this->connection->prepare("INSERT INTO tap_useranswers_ip (questionnaire_id, ip) VALUES (?, ?);");
 		$stmt->bind_param('is', $quizId, $userIp);
 		$stmt->execute();

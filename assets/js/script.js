@@ -151,7 +151,7 @@ function newSelectQuestion() {
 
 }
 
-
+// QR koodi genereerimine (QRIous abil)
 function generateQrCode(id){
     var urlToQr = 'http://localhost/tarkvaraarenduse_praktika/quiz/?id='+id;
     console.log(urlToQr);
@@ -161,6 +161,8 @@ function generateQrCode(id){
     });
 }
 
+
+//Ajax päring, et saata PHP'le massiiv küsimustiku nimega ning küsimustega
 function saveQuestionnaire() {
     var questionnaire = document.getElementById("newQuestionnaireName").value,
         questions = document.querySelectorAll(".q"),
@@ -201,7 +203,7 @@ function saveQuestionnaire() {
     });
 }
 
-
+//Ajax päring, et saata PHP'le küsimustiku ID et staatust muuta	
 function changeStatus(quizId) {
     console.log(quizId);
     $.ajax({
@@ -213,7 +215,7 @@ function changeStatus(quizId) {
         }
     });
 }
-
+//Ajax päring JQueriga, et saata PHP'le massivi vastustega
 $(function () {
     $('a#submitanswers').on('click', function (e) {
         e.preventDefault();
@@ -260,7 +262,6 @@ $(function () {
 });
 
 // jquery sortable
-
 $(function () {
     $("#questionnaireDiv").sortable();
     $("#questionnaireDiv").disableSelection();

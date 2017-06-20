@@ -9,13 +9,20 @@ require ("functions.php");
 $loginEmail = "";
 $loginNotice = "";
 
+
+
+// Juhul, kui sisselogitud
 if (isset ($_SESSION["userId"])){
     header("Location: index.php");
 }
 
+// Juhul, kui parool oli vale/login vale, salvestab logini inputisse
 if (isset ($_POST ["loginEmail"])){
     $loginEmail = $_POST["loginEmail"];
 }
+
+
+// Väljade kontroll ning sisselogimine
 if(isset($_POST["loginEmail"]) && isset($_POST['loginPassword']) && !empty($_POST["loginEmail"]) && !empty($_POST['loginPassword'])){
     $loginNotice = $Users->login($Helper->cleanInput($_POST["loginEmail"]), $Helper->cleanInput($_POST['loginPassword']));
 }
