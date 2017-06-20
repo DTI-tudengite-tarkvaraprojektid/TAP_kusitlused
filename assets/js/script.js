@@ -51,20 +51,41 @@ function Export(id, name) {
 
 // Uus küsimus tekstiväljaga
 function newTextQuestion() {
-    var div = document.createElement('div');
+  var div = document.createElement('div');
 
-    div.style.borderLeft = "3px solid #00897b";
-    div.style.marginBottom = "20px";
-    div.style.paddingLeft = "10px";
-    div.style.backgroundColor = "white";
+  div.classList.add("newDiv");
+  div.classList.add("q");
 
-    div.className = 'q';
-    div.setAttribute('data-type', '0');
+  div.setAttribute('data-type', '0');
 
-    var name = "random-" + parseInt(Math.random() * 1000000000);
-    div.innerHTML = '<h5>Tekstiküsimus:</h5><input class="text" name="' + name + '" type="text" placeholder="Küsimuse tekst..." oninvalid="this.setCustomValidity(\'\See väli on kohustuslik!\'\)" oninput="setCustomValidity(\'\'\)" required>';
+  var name = "random-" + parseInt(Math.random() * 1000000000);
+  var input = document.createElement("input");
+
+  input.type = "text";
+  input.classList.add("text");
+  input.placeholder = "Küsimuse tekst...";
+  input.required = true;
+
+  input.addEventListener("invalid", function(){
+    this.setCustomValidity("\'See väli on kohustuslik!\'");
+  });
+
+  input.addEventListener("input", function(){
+    this.setCustomValidity("");
+  });
+
+
+  var btn = document.createElement("a");
+  btn.textContent = "Kustuta rida";
+  btn.className = "center btn-flat waves-effect waves-light";
+
+  div.appendChild(input);
+  div.appendChild(btn);
+
+  btn.addEventListener("click", function(){
+    document.getElementById('questionnaireDiv').removeChild(div);
+  });
     document.getElementById('questionnaireDiv').appendChild(div);
-
 }
 
 
@@ -72,19 +93,59 @@ function newTextQuestion() {
 function newSelectQuestion() {
     var div = document.createElement('div');
 
-    div.style.borderLeft = "3px solid #00897b";
-    div.style.paddingLeft = "10px";
-    div.style.marginBottom = "20px";
-    div.style.backgroundColor = "white";
+    div.classList.add("newDiv");
+    div.classList.add("q");
 
-    div.className = 'q';
     div.setAttribute('data-type', '2');
 
     var name = "random-" + parseInt(Math.random() * 1000000000);
-    div.innerHTML = '<h5>Valikvastustega küsimus:</h5><input class="text" name="' + name + '" type="text" placeholder="Küsimuse tekst..." oninvalid="this.setCustomValidity(\'\See väli on kohustuslik!\'\)" oninput="setCustomValidity(\'\'\)"  required>';
+    var input = document.createElement("input");
+
+    input.type = "text";
+    input.classList.add("text");
+    input.placeholder = "Küsimuse tekst...";
+    input.name = name;
+    input.required = true;
+
+    input.addEventListener("invalid", function(){
+        this.setCustomValidity('See väli on kohustuslik!');
+    });
+
+    input.addEventListener("input", function(){
+        this.setCustomValidity("");
+    });
+
+    div.appendChild(input);
 
     name = "random-" + parseInt(Math.random() * 1000000000);
-    div.innerHTML += '<span>Vastused (eralda komaga):</span><input id="' + name + '" name="' + name + '" class="options" oninvalid="this.setCustomValidity(\'\See väli on kohustuslik!\'\)" oninput="setCustomValidity(\'\'\)" type="text" placeholder="Vastus №1,vastus №2..." required>';
+    input = document.createElement("input");
+
+    input.type = "text";
+    input.classList.add("options");
+    input.placeholder = "Vastused (eralda komaga)";
+    input.name = name;
+    input.required = true;
+
+
+    input.addEventListener("invalid", function(){
+        this.setCustomValidity("See väli on kohustuslik!");
+    });
+
+    input.addEventListener("input", function(){
+        this.setCustomValidity("");
+    });
+
+    var btn = document.createElement("a");
+    btn.textContent = "Kustuta rida";
+    btn.className = "center btn-flat waves-effect waves-light";
+
+
+    div.appendChild(input);
+    div.appendChild(btn);
+
+    btn.addEventListener("click", function(){
+        document.getElementById('questionnaireDiv').removeChild(div);
+    });
     document.getElementById('questionnaireDiv').appendChild(div);
 
 
@@ -174,7 +235,7 @@ $(function () {
             //validate if input is not empty? before posting
             if (input.attr('type') == 'radio') {
                 items['id'] = input.data('questionId');
-                items['value'] = input.attr('id');
+                items['value'] = $(this).next("label").html();
             } else {
                 items['id'] = input.attr('id');
                 items['value'] = input.val();
@@ -189,7 +250,7 @@ $(function () {
             url: "saveanswers.php",
             data: {answeredQuestions: JSON.stringify(data)},
             success: function(data){
-                Materialize.toast('Vastused salvestatud. Redigeerin...!', 3000, 'rounded')
+                Materialize.toast('Vastused salvestatud. Redigeerin...', 3000, 'rounded')
                 setTimeout(function(){
                     window.location = "http://localhost/tarkvaraarenduse_praktika/aitah.html";
                 }, 2500);

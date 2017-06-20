@@ -242,6 +242,16 @@ footer {
     margin-right: 0;
 }
 
+.row .col-header {
+    line-height: 4.4em;
+}
+
+.newDiv {
+  border-left: 3px solid #00897b;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  background-color:"white";
+}
 
 
 nav.custom{
@@ -252,22 +262,10 @@ nav.custom{
 @media screen and (min-width: 200px) {
     .thin-text {
         font-weight: 300;
-        background: rgba(96, 125, 139, .4);
+        background: rgba(10, 160, 139, .4);
         padding: 20px;
         border-radius: 10px;
         font-size: 2em;
-    }
-
-    .scrollDownIcon {
-        content: url("../img/scroll.png");
-        width: 10%;
-        height: auto;
-        opacity: 0.4;
-        position: absolute;
-        left: 50%;
-        margin-top: 15%;
-        margin-left: -5%;
-
     }
 
     #formCode {

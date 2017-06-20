@@ -100,7 +100,8 @@ if (!empty($_POST['delValue'])) {
 <?php } else {
         echo '<div class="container">';
         echo '<div class="row">';
-        echo '<div class="col s12 m12 l12">';
+        echo '<div class="col s1 m1 l1"></div>';
+        echo '<div class="col s10 m10 l10">';
         echo '<div class="row center">';
         echo '<div><br><a class="center waves-effect waves-light btn-large btn-floating modal-trigger" href="#newQuestionnaire"><i class="large material-icons">note_add</i></a></div>';
         echo '</div>';
@@ -124,7 +125,7 @@ if (!empty($_POST['delValue'])) {
             echo '<div class="collapsible-header active">';
             echo '<div class="row col-header" style="margin-top: 20px;">';
             echo '<div class="col s10 m10 l10">';
-            echo '<h4 class="black-text">';
+            echo '<h4 style="margin-left: 30px" class="black-text">';
             echo $q->questionnaire->questionnaire_name, '</h4>';
             echo '</div>';
             echo '<div class="col s2 m2 l2">';
@@ -198,7 +199,7 @@ if (!empty($_POST['delValue'])) {
             </div>
     </div>
     <div class="modal-footer">
-        <button type="submit" value="Salvesta" class="btn waves-effect waves-green modal-close">Salvesta</button>
+        <button type="submit" value="Salvesta" class="btn waves-effect waves-green">Salvesta</button>
     </div>
     </form>
 </div>

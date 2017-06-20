@@ -1,5 +1,5 @@
 <?php
-require("app/config/config.php");
+require_once("app/config/config.php");
 
 if (!isset($_SESSION)) {
     session_start();

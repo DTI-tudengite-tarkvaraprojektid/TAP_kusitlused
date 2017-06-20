@@ -83,7 +83,7 @@ function get_client_ip()
                                oninput="setCustomValidity('')" required></textarea>
                     </div>
                 <?php } elseif ($q->question_type == "2") { ?>
-                    <div>
+                    <div ="<?=rand()?>">
                         <h5><?php echo $q->question_name ?></h5>
                         <form action="#">
                             <?php if (sizeof($q->question_options) > 0) { ?>
@@ -91,8 +91,8 @@ function get_client_ip()
                                     <div>
                                         <input name="<?php echo $q->question_name ?>"
                                                type="radio" data-question-id="<?php echo $q->question_id ?>"
-                                               id="<?php echo $opt->option_name ?>"/>
-                                        <label for="<?php echo $opt->option_name ?>"><?php echo $opt->option_name ?></label>
+                                               id="<?php echo $opt->option_id ?>"/>
+                                        <label for="<?php echo $opt->option_id ?>"><?php echo $opt->option_name ?></label>
                                     </div>
                                 <?php }
                             } ?>
