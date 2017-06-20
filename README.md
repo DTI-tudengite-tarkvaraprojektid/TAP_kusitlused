@@ -28,6 +28,7 @@
   
 ### Kasutatud tarkvara:
   - PHP 7.0.13
+  - MySQL 5.6.34-log
   - jQuery 3.1.1
   - [QRious](https://github.com/neocotic/qrious)
   - Kood kirjutatud Sublime text 3 abil.
