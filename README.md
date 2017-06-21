@@ -1,6 +1,6 @@
 # Suvepraktika projekt: Quizify
 
-[![N|Solid](https://i.gyazo.com/1a84a9e14a1a87e80e7510f14897aba9.jpg)]()
+[![N|Solid](https://i.gyazo.com/50774dad406ad8743157c0f13a42b13b.jpg)]()
 
 ## Notice:
   - Projekt ei ole lõpetatud, see tähendab, et tuleb veel palju muudatusi!
@@ -30,6 +30,7 @@
   - PHP 7.0.13
   - MySQL 5.6.34-log
   - jQuery 3.1.1
+  - Materialize CSS 0.98.2
   - [QRious](https://github.com/neocotic/qrious)
   - Kood kirjutatud Sublime text 3 abil.
   
