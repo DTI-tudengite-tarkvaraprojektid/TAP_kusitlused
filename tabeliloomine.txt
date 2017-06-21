@@ -1,0 +1,86 @@
+CREATE TABLE IF NOT EXISTS `tap_accounts` (
+  `id` int(11) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(128) NOT NULL,
+  `created` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+
+CREATE TABLE IF NOT EXISTS `tap_options` (
+  `id` int(11) NOT NULL,
+  `question_id` int(11) NOT NULL,
+  `options` varchar(255) CHARACTER SET latin1 NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=143 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+CREATE TABLE IF NOT EXISTS `tap_questionnaires` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `author_email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `active` tinyint(1) NOT NULL,
+  `created` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB AUTO_INCREMENT=104 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+CREATE TABLE IF NOT EXISTS `tap_questions` (
+  `id` int(11) NOT NULL,
+  `questionnaire_id` int(11) NOT NULL,
+  `type` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=196 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
+
+
+CREATE TABLE IF NOT EXISTS `tap_useranswers` (
+  `id` int(11) NOT NULL,
+  `questionnaire_id` int(11) NOT NULL,
+  `question_id` int(11) NOT NULL,
+  `answer` varchar(255) CHARACTER SET latin1 NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+
+CREATE TABLE IF NOT EXISTS `tap_useranswers_ip` (
+  `id` int(11) NOT NULL,
+  `questionnaire_id` int(11) NOT NULL,
+  `ip` varchar(255) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=latin1;
+
+
+ALTER TABLE `tap_accounts`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `tap_options`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `question_id` (`question_id`);
+
+ALTER TABLE `tap_questionnaires`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `tap_questions`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `questionnaire_id` (`questionnaire_id`);
+
+
+ALTER TABLE `tap_useranswers`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `question_id` (`question_id`);
+
+ALTER TABLE `tap_useranswers_ip`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `tap_accounts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+
+ALTER TABLE `tap_options`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=143;
+
+ALTER TABLE `tap_questionnaires`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=104;
+
+ALTER TABLE `tap_questions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=196;
+
+ALTER TABLE `tap_useranswers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=86;
+
+ALTER TABLE `tap_useranswers_ip`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=43;
