@@ -4,7 +4,7 @@ class Users{
     function __construct($mysqli){
         $this->connection = $mysqli;
     }
-
+// Sisselogimine
     function login ($email, $password){
 
         $loginNotice = "";
